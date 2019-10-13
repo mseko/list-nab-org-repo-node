@@ -1,0 +1,37 @@
+{
+  "name": "list-org-repo",
+  "version": "0.0.0",
+  "author": "mseko @mseko",
+  "bin": {
+    "list-org-repo": "./bin/run"
+  },
+  "bugs": "https://github.com/mseko/list-org-repo/issues",
+  "dependencies": {
+    "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.13.3",
+    "@oclif/plugin-help": "^2.2.1"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "homepage": "https://github.com/mseko/list-org-repo",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "bin": "list-org-repo"
+  },
+  "repository": "mseko/list-org-repo",
+  "scripts": {
+    "test": "echo NO TESTS"
+  }
+}
