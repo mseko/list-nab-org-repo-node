@@ -1,31 +1,26 @@
 const {Command, flags} = require('@oclif/command')
 
 class ListOrgRepoCommand extends Command {
+
   async run() {
     const {flags} = this.parse(ListOrgRepoCommand)
-
-    let options = {
-      hostname: 'api.github.com',
-      path: '/orgs/nablarch/repos?per_page=200&page=1',
-      method: 'GET',
-      headers: {
-        'User-Agent': 'node.js'
-      }
-    }
-    const req = require('https').get(options).end()
-    req.on('response', (res) => {
-      let body = ''
-      res.on('data', function (chunk) {
-        body += chunk
-      })
-      res.on('end', () => {
-        const parsed = JSON.parse(body)
-        for (let obj of parsed) {
-          console.log(obj.clone_url)
+    const orgName = "nablarch"
+    require('request')({
+        url: "https://api.github.com/orgs/" + orgName + "/repos?per_page=200&page=1",
+        headers: {
+          'User-Agent': 'node.js'
         }
-      })
-    })
+      }, (error, response, body) => {
+        if (response.statusCode == 200) {
+          const parsed = JSON.parse(body)
+          for (let obj of parsed) {
+            console.log(obj.clone_url)
+          }
+        }
+      }
+    )
   }
+
 }
 
 ListOrgRepoCommand.description = `Describe the command here
