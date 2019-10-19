@@ -30,7 +30,7 @@ class ListOrgRepoCommand extends Command {
 
     try {
       for (let i = 1; i <= pages; i++) {
-        let requestOptions = {
+        const requestOptions = {
           //GithubのAPIをキックするためのURLを組み立てる
           url: "https://api.github.com/orgs/" + orgName + "/repos?per_page=" + PER_PAGE + "&page=" + i,
           headers: {
